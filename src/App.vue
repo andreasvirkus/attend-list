@@ -76,7 +76,12 @@ export default {
 
 html {
   box-sizing: border-box;
+}
+html, body {
   min-height: 100vh;
+}
+body {
+  margin: 0;
 }
 
 .app-wrapper {
@@ -85,10 +90,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 main {
@@ -106,7 +111,7 @@ main footer {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem;
+  padding: 1rem 0;
   box-shadow: 0 0 8px rgba(70, 70, 70, 0.15);
   z-index: 2;
   background-color: #fff;
@@ -123,7 +128,7 @@ h1 {
   font-family: 'Alfa Slab One';
   font-weight: bolder;
   font-size: calc(1rem + 7vw);
-  margin: 0;
+  margin-top: 2rem;
 }
 
 .logo {
@@ -132,7 +137,6 @@ h1 {
 }
 
 textarea {
-  width: 500px;
   overflow: hidden;
   resize: none;
   font-family: Courier, monospace;
@@ -141,10 +145,10 @@ textarea {
 }
 
 .sleek {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.4rem;
-  width: 400px;
-  max-width: 90%;
+  width: 500px;
+  max-width: 98%;
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(70, 70, 70, 0.2);
@@ -160,7 +164,7 @@ textarea {
 button {
   background: none;
   border: 1px solid transparent;
-  padding: 1rem 3rem;
+  padding: 1rem 2.5rem;
   background-color: cornflowerblue;
   border-radius: 4px;
   color: white;
