@@ -1,9 +1,7 @@
 <template>
   <main>
-    <label>
-      Filter names:
-      <input v-model="search" type="text" class="sleek">
-    </label>
+    <input v-model="search" type="text" class="sleek" placeholder="Filter names">
+
     <ul>
       <li v-for="(person, i) in filtered" :key="i"
         :class="{ disabled: person.attended }"
@@ -64,6 +62,8 @@ input {
   display: block;
   background: none;
   line-height: 2rem;
+  font-family: Courier, monospace;
+  color: #222;
   width: 400px;
   max-width: 90%;
   margin: 1em auto 2rem;

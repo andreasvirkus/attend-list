@@ -3,8 +3,8 @@
     <h1>Attend List</h1>
 
     <main v-if="editing">
-      <p>Paste a list of attendees:</p>
       <textarea class="sleek"
+        placeholder="Paste a list of names"
         :style="{ height: textareaHeight + 'px' }"
         v-model="people"
         ref="text"></textarea>
@@ -78,7 +78,7 @@ html {
 }
 
 .app-wrapper {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -111,9 +111,10 @@ main footer {
 }
 
 h1 {
-  /* background: url("https://images.unsplash.com/photo-1504680177321-2e6a879aac86?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8111c411923b7c9dbfc11d87f5d9c48&auto=format&fit=crop&w=1350&q=80") center;
-  background: url("https://images.unsplash.com/photo-1519056231101-0f83a012aed3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f5544f889b255d29e84cc01960cfa21&auto=format&fit=crop&w=1350&q=80") center;
-  background: url("https://images.unsplash.com/photo-1485889397316-8393dd065127?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5a21d4bcefdc4d6b83a9a13c9452328&auto=format&fit=crop&w=2090&q=80") center; */
+  background: url("https://images.unsplash.com/photo-1504680177321-2e6a879aac86?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8111c411923b7c9dbfc11d87f5d9c48&auto=format&fit=crop&w=850&q=60") center;
+  background: url("https://images.unsplash.com/photo-1519056231101-0f83a012aed3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f5544f889b255d29e84cc01960cfa21&auto=format&fit=crop&w=850&q=60") center;
+  background: url("https://images.unsplash.com/photo-1485889397316-8393dd065127?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5a21d4bcefdc4d6b83a9a13c9452328&auto=format&fit=crop&w=890&q=60") center;
+  background: url("https://images.unsplash.com/photo-1511180427842-5878e7a53e2c?ixlib=rb-0.3.5&s=526cdecd25599e8c14c884bb1bb9c504&auto=format&fit=crop&w=850&q=60") center;
   background: url("https://images.unsplash.com/photo-1517524365899-2b96b751f85d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=75cbb43acbe6147da7860eedb9bab683&auto=format&fit=crop&w=890&q=60") center;
   -webkit-background-clip: text;
   background-clip: text;
@@ -135,9 +136,9 @@ textarea {
   width: 500px;
   max-width: 90%;
   overflow: hidden;
-  color: #222;
-  font-family: Courier, monospace;
   resize: none;
+  font-family: Courier, monospace;
+  color: #222;
 }
 
 .sleek {
@@ -163,7 +164,7 @@ button {
   border-radius: 4px;
   color: white;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   cursor: pointer;
   transition: all 0.2s;
 }
