@@ -11,8 +11,8 @@
         :class="{ disabled: person.attended }"
         class="sleek">
         <span>{{ person.name }}</span>
-        <button v-if="!person.attended" @click="person.attended = true">Arrived</button>
-        <button class="gray" v-if="person.attended" @click="person.attended = false">Undo</button>
+        <button v-if="!person.attended" @click="update(i, true)">Arrived</button>
+        <button class="gray" v-if="person.attended" @click="update(i, false)">Undo</button>
       </li>
     </ul>
 
@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       search: '',
-      attending: this.$ls.get('people', []).map(person => ({
+      attending: this.$ls.get('attendList') || this.$ls.get('people', []).map(person => ({
         name: person,
         attended: false
       }))
@@ -42,8 +42,17 @@ export default {
   methods: {
     back () {
       this.$ls.remove('people')
+      this.$ls.remove('attendList')
       this.$emit('clear')
+    },
+    update (i, state) {
+      this.attending[i].attended = state
+      this.$ls.set('attendList', this.attending)
+      console.log('attending list updated', this.attending)
     }
+  },
+  created () {
+    this.$ls.set('attendList', this.attending)
   }
 }
 </script>
@@ -55,7 +64,6 @@ label {
 input {
   display: block;
   background: none;
-  border: 1px solid;
   line-height: 2rem;
   width: 300px;
   max-width: 90%;
