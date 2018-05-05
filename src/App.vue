@@ -126,7 +126,9 @@ h1 {
   background: url("https://images.unsplash.com/photo-1517524365899-2b96b751f85d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=75cbb43acbe6147da7860eedb9bab683&auto=format&fit=crop&w=890&q=60") center;
   -webkit-background-clip: text;
   background-clip: text;
-  font: bolder calc(1rem + 9vw) 'Alfa Slab One';
+  font-family: 'Alfa Slab One';
+  font-weight: bolder;
+  font-size: calc(1rem + 9vw);
   margin: 0;
   background-size: 70%;
   color: transparent;
