@@ -64,8 +64,6 @@ input {
   line-height: 2rem;
   font-family: Courier, monospace;
   color: #222;
-  width: 400px;
-  max-width: 90%;
   margin: 1em auto 2rem;
 }
 ul {
@@ -74,8 +72,6 @@ ul {
 }
 li {
   margin: 1rem auto;
-  width: 400px;
-  max-width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;

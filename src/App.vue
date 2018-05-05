@@ -10,8 +10,10 @@
         ref="text"></textarea>
 
       <footer>
-        <button @click="save">Manage</button>
-        <button @click="clear">Clear</button>
+        <div>
+          <button @click="save">Manage</button>
+          <button @click="clear">Clear</button>
+        </div>
       </footer>
     </main>
 
@@ -109,6 +111,12 @@ main footer {
   z-index: 2;
   background-color: #fff;
 }
+main footer div {
+  display: flex;
+  justify-content: center;
+  max-width: 10rem;
+  margin: 0 auto;
+}
 
 h1 {
   /* background: url("https://images.unsplash.com/photo-1504680177321-2e6a879aac86?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8111c411923b7c9dbfc11d87f5d9c48&auto=format&fit=crop&w=850&q=60") center;
@@ -118,7 +126,7 @@ h1 {
   background: url("https://images.unsplash.com/photo-1517524365899-2b96b751f85d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=75cbb43acbe6147da7860eedb9bab683&auto=format&fit=crop&w=890&q=60") center;
   -webkit-background-clip: text;
   background-clip: text;
-  font: bolder 9vw 'Alfa Slab One';
+  font: bolder calc(1rem + 9vw) 'Alfa Slab One';
   margin: 0;
   background-size: 70%;
   color: transparent;
@@ -134,16 +142,18 @@ p {
 }
 textarea {
   width: 500px;
-  max-width: 90%;
   overflow: hidden;
   resize: none;
   font-family: Courier, monospace;
   color: #222;
+  margin-top: 3rem;
 }
 
 .sleek {
-  font-size: 16px;
+  font-size: 1.2rem;
   line-height: 1.4rem;
+  width: 400px;
+  max-width: 90%;
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(70, 70, 70, 0.2);
@@ -165,6 +175,7 @@ button {
   color: white;
   text-transform: uppercase;
   letter-spacing: 3px;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -179,6 +190,12 @@ button + button {
   background-color: transparent;
   border-color: cornflowerblue;
   color: cornflowerblue;
+}
+
+@media screen and (max-width: 25em) {
+  html {
+    font-size: 12px;
+  }
 }
 
 /* Remove scrollbar content shift on desktop */
