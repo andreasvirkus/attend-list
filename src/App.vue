@@ -119,19 +119,11 @@ main footer div {
 }
 
 h1 {
-  /* background: url("https://images.unsplash.com/photo-1504680177321-2e6a879aac86?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8111c411923b7c9dbfc11d87f5d9c48&auto=format&fit=crop&w=850&q=60") center;
-  background: url("https://images.unsplash.com/photo-1519056231101-0f83a012aed3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f5544f889b255d29e84cc01960cfa21&auto=format&fit=crop&w=850&q=60") center;
-  background: url("https://images.unsplash.com/photo-1485889397316-8393dd065127?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5a21d4bcefdc4d6b83a9a13c9452328&auto=format&fit=crop&w=890&q=60") center;
-  background: url("https://images.unsplash.com/photo-1511180427842-5878e7a53e2c?ixlib=rb-0.3.5&s=526cdecd25599e8c14c884bb1bb9c504&auto=format&fit=crop&w=850&q=60") center; */
-  background: url("https://images.unsplash.com/photo-1517524365899-2b96b751f85d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=75cbb43acbe6147da7860eedb9bab683&auto=format&fit=crop&w=890&q=60") center;
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: cornflowerblue;
   font-family: 'Alfa Slab One';
   font-weight: bolder;
-  font-size: calc(1rem + 9vw);
+  font-size: calc(1rem + 7vw);
   margin: 0;
-  background-size: 70%;
-  color: transparent;
 }
 
 .logo {
@@ -139,9 +131,6 @@ h1 {
   margin-bottom: 1rem;
 }
 
-p {
-  margin-bottom: 0;
-}
 textarea {
   width: 500px;
   overflow: hidden;
