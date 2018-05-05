@@ -1,41 +1,65 @@
 <template>
-  <ul>
-    <li>attendList: {{ attending }}</li>
-    <li v-for="(person, i) in attending" :key="i"
-      :class="{ disabled: person.attended }">
-      <span class='person'>{{ person.name }}</span>
-      <button @click="person.attended = true">Arrived</button>
-    </li>
-  </ul>
+  <section>
+    <button @click="back">Back</button>
+    <label>
+      Filter names:
+      <input v-model="search" type="text" pattern="/a-zA-Z/"
+        class="sleek">
+    </label>
+    <ul>
+      <li v-for="(person, i) in filtered" :key="i"
+        :class="{ disabled: person.attended }"
+        class="sleek">
+        <span>{{ person.name }}</span>
+        <button v-if="!person.attended" @click="person.attended = true">Arrived</button>
+        <button class="gray" v-if="person.attended" @click="person.attended = false">Undo</button>
+      </li>
+    </ul>
+
+    <button @click="back">Back</button>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'AttendList',
-  props: ['people'],
-  computed: {
-    attending () {
-      console.log(
-        'attending:',
-        this.people.map(person => ({ name: person, attended: false }))
-      )
-      // return this.people;
-      return this.people.map(person => ({
+  data () {
+    return {
+      search: '',
+      attending: this.$ls.get('people', []).map(person => ({
         name: person,
         attended: false
       }))
     }
   },
+  computed: {
+    filtered () {
+      return this.search
+        ? this.attending.filter(person => person.name.toLowerCase().startsWith(this.search))
+        : this.attending
+    }
+  },
   methods: {
-    setStatus (indx) {}
+    back () {
+      this.$ls.remove('people')
+      this.$emit('clear')
+    }
   }
 }
 </script>
 
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+label {
+  display: block;
+}
+input {
+  display: block;
+  background: none;
+  border: 1px solid;
+  line-height: 2rem;
+  width: 300px;
+  max-width: 90%;
+  margin: 1em auto 2rem;
 }
 ul {
   list-style-type: none;
@@ -50,5 +74,18 @@ li {
 }
 a {
   color: #42b983;
+}
+
+button.gray {
+  background-color: #cacaca;
+}
+button.gray:hover {
+
+  box-shadow: 4px 4px 0 #7e7e7e;
+  background-color: #d3d3d3;
+}
+
+section > button {
+  margin: 3rem 0;
 }
 </style>
