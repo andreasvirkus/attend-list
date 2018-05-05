@@ -35,7 +35,7 @@ export default {
   computed: {
     filtered () {
       return this.search
-        ? this.attending.filter(person => person.name.toLowerCase().startsWith(this.search))
+        ? this.attending.filter(person => person.name.toLowerCase().includes(this.search))
         : this.attending
     }
   },
