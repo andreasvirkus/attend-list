@@ -1,17 +1,23 @@
 <template>
   <div id="app" class="app-wrapper">
     <h1>Attend List</h1>
-    <img src="/icon.svg" class="logo" alt="Coctail glass with an olive in it">
 
     <main v-if="editing">
       <p>Paste a list of attendees:</p>
-      <textarea class="sleek" v-model="people"></textarea>
-      <button @click="save">Manage</button>
+      <textarea class="sleek"
+        :style="{ height: textareaHeight + 'px' }"
+        v-model="people"
+        ref="text"></textarea>
+
+      <footer>
+        <button @click="save">Manage</button>
+        <button @click="clear">Clear</button>
+      </footer>
     </main>
 
-    <main v-else>
+    <template v-else>
       <attend-list :people="attending" @clear="isEditing" />
-    </main>
+    </template>
   </div>
 </template>
 
@@ -23,13 +29,14 @@ export default {
   data () {
     return {
       people: '',
-      editing: true
+      editing: true,
+      textareaHeight: 80
     }
   },
   components: { AttendList },
   computed: {
     attending () {
-      return this.people.split('\n')
+      return this.people.split('\n').filter(p => p.length)
     }
   },
   methods: {
@@ -37,10 +44,19 @@ export default {
       this.$ls.set('people', this.attending)
       this.isEditing()
     },
+    clear () {
+      this.$ls.set('people', [])
+      this.people = ''
+    },
     isEditing () {
       const editing = !this.$ls.get('people', []).length
       this.editing = editing
       return editing
+    }
+  },
+  watch: {
+    people () {
+      this.textareaHeight = this.people ? this.$refs.text.scrollHeight : 80
     }
   },
   mounted () {
@@ -58,6 +74,7 @@ export default {
 
 html {
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .app-wrapper {
@@ -75,10 +92,22 @@ html {
 main {
   width: 40rem;
   max-width: 90%;
+  padding-bottom: 140px;
 }
 
 main > * + * {
   margin-top: 2rem;
+}
+
+main footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(70, 70, 70, 0.15);
+  z-index: 2;
+  background-color: #fff;
 }
 
 h1 {
@@ -142,6 +171,13 @@ button:hover {
   background-color: #87adf1;
   box-shadow: 4px 4px 0 #2f71e7;
   transform: translate(-4px, -4px);
+  color: white;
+}
+button + button {
+  margin-left: 1rem;
+  background-color: transparent;
+  border-color: cornflowerblue;
+  color: cornflowerblue;
 }
 
 /* Remove scrollbar content shift on desktop */

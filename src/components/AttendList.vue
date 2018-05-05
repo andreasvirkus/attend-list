@@ -1,10 +1,8 @@
 <template>
-  <section>
-    <button @click="back">Back</button>
+  <main>
     <label>
       Filter names:
-      <input v-model="search" type="text" pattern="/a-zA-Z/"
-        class="sleek">
+      <input v-model="search" type="text" class="sleek">
     </label>
     <ul>
       <li v-for="(person, i) in filtered" :key="i"
@@ -16,8 +14,10 @@
       </li>
     </ul>
 
-    <button @click="back">Back</button>
-  </section>
+    <footer>
+      <button @click="back">Clear</button>
+    </footer>
+  </main>
 </template>
 
 <script>
@@ -48,7 +48,6 @@ export default {
     update (i, state) {
       this.attending[i].attended = state
       this.$ls.set('attendList', this.attending)
-      console.log('attending list updated', this.attending)
     }
   },
   created () {
@@ -65,7 +64,7 @@ input {
   display: block;
   background: none;
   line-height: 2rem;
-  width: 300px;
+  width: 400px;
   max-width: 90%;
   margin: 1em auto 2rem;
 }
@@ -75,7 +74,8 @@ ul {
 }
 li {
   margin: 1rem auto;
-  width: 60%;
+  width: 400px;
+  max-width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
